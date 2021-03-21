@@ -2,11 +2,13 @@
 :root {
   --primary-white: #fff;
   --primary-orange: rgb(221, 150, 18);
-  --primary-dark: rgb(255, 255, 255, 0);
+  --primary-dark: black;
+  --primary-red: #ef4035;
+  --primary-hover-red: #f55e6a;
 }
 
 body {
-  font-family: "Roboto Condesed" sans-serif;
+  font-family: "Roboto Condesed", sans-serif;
 }
 /***************************************** NAVBAR ***********************/
 .logo {
@@ -14,6 +16,9 @@ body {
 }
 
 /************** MENU LINKS **************************/
+nav {
+  z-index: 2;
+}
 nav a.nav-link {
   /* font-weight: 500; */
   font-size: 0.8rem;
@@ -38,6 +43,18 @@ nav ul li {
   height: 6rem !important;
 }
 
+@media (max-width: 768px) {
+  .navbar-brand {
+    max-width: 6rem;
+    padding: 0;
+    height: 4rem !important;
+  }
+
+  .logo {
+    width: 4rem; /* 16.25 rem is to big */
+  }
+}
+
 .navbar-nav > li > a.active,
 /* .navbar-nav > li > a:focus { -- tak bd podswietlony przycisk po kliknieciu*/
   .navbar-nav > li > a.active:focus {
@@ -46,4 +63,82 @@ nav ul li {
 
 .navbar-nav > li > a:hover {
   border-top: 0.1875rem solid var(--primary-orange);
+}
+
+/***************************************** HEADER  ***********************/
+
+.header-wraper {
+  position: relative;
+  background: url(background.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+}
+
+.main-info {
+  display: flex;
+  position: absolute; /* aby wycentrowac na srodek to wszystko an 0 */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Roboto Condesed", sans-serif;
+  z-index: 1;
+}
+
+.main-info h1 {
+  color: var(--primary-orange);
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .main-info h1 {
+    font-size: 1.7rem !important;
+  }
+
+  .typed-text {
+    font-size: 1.3rem !important;
+  }
+}
+
+/***************************************** TYPED TEXT   ***********************/
+
+.typed-text {
+  font-size: 2rem;
+  color: var(--primary-dark);
+}
+
+/***************************************** HEADER MAIN OFFER BTN  ***********************/
+
+.btn-main-offer {
+  border: 1px solid var(--primary-red);
+  text-transform: uppercase;
+  border-radius: 0;
+  padding: 0.625rem 0.75rem 0.75rem 0.75rem;
+  color: var(--primary-dark);
+  margin: 2rem;
+}
+
+.btn-main-offer:hover {
+  text-decoration: none;
+  background-color: var(--primary-hover-red);
+  transition: 0.2s ease-in-out;
+}
+/***************************************** particles ***********************/
+
+.tsparticles-canvas-el {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .particles-canvas {
+    display: none;
+  }
 }
